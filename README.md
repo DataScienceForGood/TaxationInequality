@@ -17,6 +17,7 @@ Analysis results, visualisations go in `/results`
 In `/code/python_gis_environment.yml` is a `YAML` file, for use in configuring a `conda` environment. I strongly recommend you install `conda` and use this environment file to configure an environment. We can all maintain a consistent configuration in this way.
 
 ### Configuring conda
-Use the command `conda env create -f code/python_gis_environment.yml` to create an environment that includes Python 3.6, as well as all required libraries for analysing GIS data.
-
-If you require extra libraries, install them using `conda install` and then export a new environment file with the command `conda env export > python_gis_environment.yml`. Then commit the new environment, and let everyone in the Slack channel know.
+* Use the command `conda env create -f code/python_gis_environment.yml` to create a new environment that includes Python 3.6, as well as all required libraries for analysing GIS data. You should be able to use this environment for Jupyter, as well as PyCharm.
+* Use the command `source activate py36_gis` to activate the environment in the terminal. You should do this if updating to exporting the environment (see below).
+* If you require extra libraries, install them using `conda install` and then export a new environment file with the command `conda env export > python_gis_environment.yml`. Then commit the new environment, and let everyone in the Slack channel know.
+* To update your existing `conda` environment, if someone else updates the `python_gis_environment.yml` definition, use the command `conda update -f python_gis_environment.yml`.
