@@ -4,12 +4,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-gpdMap = gpd.read_file('../../data/WE_StatWohneinteilungen/Wohnviertel.shp')
-gpdMap['area'] = gpdMap.area
-gpdMap.plot(column = 'OBJECTID')
+from read_data import *
+
+# - Read map and 2015 tax data
+gdfMap = read_WV_map()
+dfIncome = read_2015_income()
+dfAssets = read_2015_assets()
+
+(dfMap_WVid_name, dfMapWVid_geoID, dfMapICid, dfMapACid) = read_2015_mappings()
 
 dfTax2015 = pd.read_csv('../../data/data2015.csv')
-
-gpdMapTax = pd.merge(gpdMap, dfTax2015, left_on = 'OBJECTID', right_on = 'wohnviertel_id')
-
+gpdMapTax = pd.merge(gdfMap, dfTax2015, left_on = 'OBJECTID', right_on = 'wohnviertel_id')
 gpdMapTax.plot(column = 'reinverm_gini')
