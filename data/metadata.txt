@@ -6,4 +6,6 @@ reinverm_median and reinverm_gini, year 2015, NOTE: I GUESS WE ARE GONNA DELETE 
 gymnasialquote, year 2017, indikatoren->Bildung->Gymnasialquote->Download TSV-file 4826-1.tsv
 
 
+praemienverbilliungsquote (part of the residents receiving a discount on their health insurance fee by the authorities), year 2016, indikatoren->soziale sicherheit->anteil Haushalte mit Praemienverbilligung ->Download TSV-file 6204.tsv
 
+Sozialhilfequote (part of population generally receiving social help), year 2016, indikatoren->soziale sicherheit->sozialhilfequote->download TSV-file 4822.tsv
