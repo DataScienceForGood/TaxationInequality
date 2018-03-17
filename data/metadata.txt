@@ -1,0 +1,9 @@
+Population and Auslaenderanteil, year 2018,http://www.statistik.bs.ch/zahlen/tabellen/1-bevoelkerung/bestand-struktur.html
+T01.0.03
+
+reinverm_median and reinverm_gini, year 2015, NOTE: I GUESS WE ARE GONNA DELETE THIS
+
+gymnasialquote, year 2017, indikatoren->Bildung->Gymnasialquote->Download TSV-file 4826-1.tsv
+
+
+
