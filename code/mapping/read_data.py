@@ -18,7 +18,7 @@ def read_2015_income(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
 
     # - Read and return Income data table
     return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
-                         sheet_name = 'Income', header = 3, skip_footer = 2)
+                         sheet_name = 'Income', header = 3, skipfooter = 2)
 
 
 def read_2015_assets(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
@@ -31,8 +31,32 @@ def read_2015_assets(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
 
     # - Read and return Assets data table
     return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
-                         sheet_name = 'Assets', header = 3, skip_footer = 2)
+                         sheet_name = 'Assets_quintiles', header = 3, skipfooter = 2)
 
+def read_2015_income_quintiles(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
+    """
+    read_2015_income - Read the 2015 income table (quintiles)
+
+    :param strDataDir: Data directory location. Default: '../../data'
+    :return:           pd.DataFrame dfIncome
+    """
+
+    # - Read and return Income data table
+    return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
+                         sheet_name = 'Income_quintiles', header = 3, skipfooter = 2)
+
+
+def read_2015_assets_quintiles(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
+    """
+    read_2015_assets - Read the 2015 assets table (quintiles)
+
+    :param strDataDir: Data directory location. Default: '../../data'
+    :return: pd.DataFrame dfAssets
+    """
+
+    # - Read and return Assets data table
+    return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
+                         sheet_name = 'Assets_quintiles', header = 3, skipfooter = 2)
 
 def read_2015_mappings(strDataDir: str = DEF_strDataDir) -> (pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame):
     """

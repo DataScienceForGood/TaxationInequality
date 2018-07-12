@@ -1,4 +1,4 @@
-name: py36_gis_test
+name: py36_gis
 channels:
 - defaults
 dependencies:
