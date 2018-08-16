@@ -8,6 +8,36 @@ DEF_strDataDir = '../../data'
 strFile_2015IncomeAssets = 'Steuern_Klassen_Wohnviertel_cleaned.xlsx'
 strFile_BSWVMap = 'WE_StatWohneinteilungen/Wohnviertel.shp'
 
+dAncillaryDataSets = {
+    'PropWomenAtWork':          ('Anteil Frauen an den Beschäftigten.csv', 'PropWomenAtWork'),
+    'PropGreenArea':            ('Anteil Grünfläche.csv', 'PropGreenArea'),
+    'PropSwiss':                ('Anteil Schweizer an der Gesamtbevölkerung.csv', 'PropSwiss'),
+    'Prop1-2RoomApartments':    ('Anteil Wohnungen mit 1 oder 2 Zimmern am Gesamtwohnungsbestand.csv', 'PropApartments'),
+    'NumRobberies':             ('Anzahl Einbruch- und Einschleichdiebstähle.csv', 'NumRobberies'),
+    'NumDogsPer100':            ('Anzahl Hunde pro 100 Einwohner.csv', 'NumDogs'),
+    'PopPerHectare':            ('Anzahl Personen pro Hektare.csv', 'PopPerHect'),
+}
+
+def read_ancillary_data(strDataKey, strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
+    """
+    read_ancillary_data - Read an extra data set
+
+    :param strDataKey:  string Key identifying the data set (see `dAncillaryDataSets`
+    :param strDataDir:  string Data directory location. Default: '../../data'
+    :return:            pd.DataFrame dfData
+    """
+    assert strDataKey in dAncillaryDataSets.keys(), \
+        '`strDataKey` must be one of the recognised data sets'
+
+    dfData = pd.read_csv(os.path.join(strDataDir, dAncillaryDataSets[strDataKey][0]),
+                         sep = ';', decimal = ',')
+    return dfData.rename(index = str,
+                  columns = {
+                      'Code': 'wohnviertel_id',
+                      'Name': 'Wohnviertel',
+                      'Wert': dAncillaryDataSets[strDataKey][1],
+                  })
+
 def read_2015_income(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
     """
     read_2015_income - Read the 2015 income table
