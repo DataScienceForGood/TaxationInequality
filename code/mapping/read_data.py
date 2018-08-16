@@ -61,7 +61,7 @@ def read_2015_assets(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
 
     # - Read and return Assets data table
     return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
-                         sheet_name = 'Assets_quintiles', header = 3, skipfooter = 2)
+                         sheet_name = 'Assets', header = 3, skipfooter = 2)
 
 def read_2015_income_quintiles(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
     """
