@@ -2,6 +2,8 @@
 import geopandas as gpd
 import pandas as pd
 import os
+import sys
+sys._enablelegacywindowsfsencoding()
 
 # - Data location default
 DEF_strDataDir = '../../data'
