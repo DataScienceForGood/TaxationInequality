@@ -3,7 +3,7 @@ import geopandas as gpd
 import pandas as pd
 import os
 import sys
-sys._enablelegacywindowsfsencoding()
+# sys._enablelegacywindowsfsencoding()
 
 from typing import Tuple
 
