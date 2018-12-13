@@ -5,6 +5,8 @@ import os
 import sys
 sys._enablelegacywindowsfsencoding()
 
+from typing import Tuple
+
 # - Data location default
 DEF_strDataDir = '../../data'
 strFile_2015IncomeAssets = 'Steuern_Klassen_Wohnviertel_cleaned.xlsx'
@@ -52,6 +54,24 @@ def read_2015_income(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
     return pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
                          sheet_name = 'Income', header = 3, skipfooter = 2)
 
+def read_2015_gini(strDataDir: str = DEF_strDataDir) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    read_2015_gini - Read the 2015 GINI data (income and assets)
+
+    :param strDataDir: Data directory location. Default: '../../data'
+    :return:           Tuple (pd.DataFrame dfGiniIncome, pd.DataFrame dfGiniAssets)
+    """
+
+    # - Read GINI data for income
+    dfGiniIncome = pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
+                                 sheet_name = 'income_gini', header = 3,
+                                 )
+
+    dfGiniAssets = pd.read_excel(os.path.join(strDataDir, strFile_2015IncomeAssets),
+                                 sheet_name = 'assets_gini', header = 3,
+                                 )
+
+    return dfGiniIncome, dfGiniAssets
 
 def read_2015_assets(strDataDir: str = DEF_strDataDir) -> pd.DataFrame:
     """
